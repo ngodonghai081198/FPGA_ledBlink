@@ -1,0 +1,127 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Thu Mar 13 12:27:10 2025
+# Process ID: 7428
+# Current directory: D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12176 D:\Chip_Design\SEMESTER_2\Vivado\Project_02\07_Assignment\Assignment_04.xpr
+# Log file: D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/vivado.log
+# Journal file: D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment\vivado.jou
+# Running On: DESKTOP-QBCQ4N2, OS: Windows, CPU Frequency: 2611 MHz, CPU Physical cores: 8, Host memory: 16890 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+open_bd_design {D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:sim_clk_gen:1.0 sim_clk_gen_0
+endgroup
+set_property location {1 99 103} [get_bd_cells processing_system7_0]
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+delete_bd_objs [get_bd_cells processing_system7_0]
+delete_bd_objs [get_bd_cells sim_clk_gen_0]
+open_bd_design {D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0
+endgroup
+set_property -dict [list CONFIG.PCW_USE_M_AXI_GP0 {0}] [get_bd_cells processing_system7_0]
+create_bd_cell -type module -reference Assignment Assignment_0
+create_bd_port -dir I -from 4 -to 0 btn
+create_bd_port -dir I -from 2 -to 0 led
+set_property location {648 -155} [get_bd_ports led]
+create_bd_port -dir O buzzer
+delete_bd_objs [get_bd_ports led]
+create_bd_port -dir O -from 2 -to 0 led
+startgroup
+connect_bd_net [get_bd_ports buzzer] [get_bd_pins Assignment_0/buzzer]
+connect_bd_net [get_bd_ports led] [get_bd_pins Assignment_0/buzzer]
+endgroup
+undo
+connect_bd_net [get_bd_ports buzzer] [get_bd_pins Assignment_0/buzzer]
+connect_bd_net [get_bd_ports led] [get_bd_pins Assignment_0/led]
+connect_bd_net [get_bd_ports btn] [get_bd_pins Assignment_0/btn]
+connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins Assignment_0/clk]
+connect_bd_net [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins Assignment_0/rst]
+apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {make_external "FIXED_IO, DDR" Master "Disable" Slave "Disable" }  [get_bd_cells processing_system7_0]
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+reset_run impl_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+open_bd_design {D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.srcs/sources_1/bd/design_1/design_1.bd}
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+open_bd_design {D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.srcs/sources_1/bd/design_1/design_1.bd}
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+make_wrapper -files [get_files D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse d:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+make_wrapper -files [get_files D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.srcs/sources_1/bd/design_1/design_1.bd] -top
+export_ip_user_files -of_objects  [get_files d:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v] -no_script -reset -force -quiet
+remove_files  d:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+file delete -force d:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse d:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {D:/Chip_Design/SEMESTER_2/Vivado/Project_02/07_Assignment/Assignment_04.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
